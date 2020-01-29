@@ -1,10 +1,10 @@
 %bcond_with tests
 
-Name:           rpmconf
+Name:           python-rpmconf
 Summary:        Tool to handle rpmnew and rpmsave files
 License:        GPLv3
 Version:        1.0.21
-Release:        1
+Release:        2
 URL:            http://wiki.github.com/xsuchy/rpmconf
 # source is created by:
 # git clone https://github.com/xsuchy/rpmconf.git
@@ -38,18 +38,18 @@ This tool search for .rpmnew, .rpmsave and .rpmorig files and ask you what to do
 with them:
 Keep current version, place back old version, watch the diff or merge.
 
-%package -n python-rpmconf
+#%%package -n python-rpmconf
 Summary:        Python interface for %{name}
 BuildArch:      noarch
 
-%description -n python-rpmconf
+%summary 
 Python interface for %{name}. Mostly useful for developers only.
 
-%package -n python-rpmconf-doc
+%package -n %{name}-doc
 Summary:        Documentation of python interface for %{name}
 BuildArch:      noarch
 
-%description -n python-rpmconf-doc
+%description  doc
 Documentation generated from code of python3-rpmconf.
 
 %package base
@@ -85,16 +85,12 @@ pylint-3.6 rpmconf bin/rpmconf || :
 %license LICENSE
 %{_sbindir}/rpmconf
 %{_mandir}/man8/rpmconf.8*
-%doc README.md
-
-%files -n python-rpmconf
-%license LICENSE
+%doc README.md LICENSE
 %{python3_sitelib}/rpmconf/
 %{python3_sitelib}/rpmconf-*.egg-info
 %{_mandir}/man3/rpmconf.3*
 
 %files -n python-rpmconf-doc
-%license LICENSE
 %doc docs/build/html/
 
 %files base
