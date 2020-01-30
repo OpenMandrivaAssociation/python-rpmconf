@@ -11,6 +11,7 @@ URL:            http://wiki.github.com/xsuchy/rpmconf
 # cd rpmconf; tito build --tgz
 Source0:        %{name}-%{version}.tar.gz
 Patch0:		fix-sphinx-build-binary-naming.patch
+Patch1:		fix-path-to-ls.patch
 BuildArch:      noarch
 BuildRequires:  docbook-utils
 BuildRequires:  docbook-dtd31-sgml
