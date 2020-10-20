@@ -3,13 +3,13 @@
 Name:           python-rpmconf
 Summary:        Tool to handle rpmnew and rpmsave files
 License:        GPLv3
-Version:        1.0.21
-Release:        3
+Version:        1.1.1
+Release:        1
 URL:            http://wiki.github.com/xsuchy/rpmconf
 # source is created by:
 # git clone https://github.com/xsuchy/rpmconf.git
 # cd rpmconf; tito build --tgz
-Source0:        %{name}-%{version}.tar.gz
+Source0:        https://github.com/xsuchy/rpmconf/archive/rpmconf-1.1.1-1/%{name}-%{version}.tar.gz
 Patch0:		fix-sphinx-build-binary-naming.patch
 Patch1:		fix-path-to-ls.patch
 BuildArch:      noarch
@@ -61,8 +61,7 @@ BuildArch: noarch
 Directory hierarchy for installation scripts, which are handled by rpmconf.
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1 -n rpmconf-rpmconf-%{version}-1
 
 %build
 %{__python3} setup.py build
