@@ -3,13 +3,13 @@
 Name:		python-rpmconf
 Summary:	Tool to handle rpmnew and rpmsave files
 License:	GPLv3
-Version:	1.1.1
-Release:	2
+Version:	1.1.4
+Release:	1
 URL:		http://wiki.github.com/xsuchy/rpmconf
 # source is created by:
 # git clone https://github.com/xsuchy/rpmconf.git
 # cd rpmconf; tito build --tgz
-Source0:	https://github.com/xsuchy/rpmconf/archive/rpmconf-1.1.1-1/%{name}-%{version}.tar.gz
+Source0:	https://github.com/xsuchy/rpmconf/archive/rpmconf-%{version}-1/rpmconf-rpmconf-%{version}-1.tar.gz
 Patch0:		fix-sphinx-build-binary-naming.patch
 Patch1:		fix-path-to-ls.patch
 BuildArch:	noarch
@@ -57,11 +57,13 @@ Directory hierarchy for installation scripts, which are handled by rpmconf.
 
 %build
 %py_build
+
 docbook2man rpmconf.sgml
 make -C docs html man
 
 %install
-%py_install --install-scripts %{_sbindir}
+%py_install -- --install-scripts %{_sbindir}
+
 install -D -m 644 rpmconf.8 %{buildroot}%{_mandir}/man8/rpmconf.8
 install -D -m 644 docs/build/man/rpmconf.3 %{buildroot}%{_mandir}/man3/rpmconf.3
 mkdir -p %{buildroot}%{_datadir}/rpmconf/
@@ -74,15 +76,15 @@ pylint-3.6 rpmconf bin/rpmconf || :
 %files
 %license LICENSE
 %{_sbindir}/rpmconf
-%doc %{_mandir}/man8/rpmconf.8*
-%doc README.md LICENSE
 %dir %{python3_sitelib}/rpmconf
-%{python3_sitelib}/rpmconf/*
-%{python3_sitelib}/rpmconf-*.egg-info
-%doc %{_mandir}/man3/rpmconf.3*
+%{python_sitelib}/rpmconf/*
+%{python_sitelib}/rpmconf-*.egg-info
 
-%files -n doc
+%files doc
+%doc README.md LICENSE
 %doc docs/build/html/
+%doc %{_mandir}/man3/rpmconf.3*
+%doc %{_mandir}/man8/rpmconf.8*
 
 %files base
 %dir %{_datadir}/rpmconf
