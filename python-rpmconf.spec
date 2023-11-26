@@ -3,33 +3,32 @@
 Name:		python-rpmconf
 Summary:	Tool to handle rpmnew and rpmsave files
 License:	GPLv3
-Version:	1.1.4
-Release:	2
+Version:	1.1.10
+Release:	1
 URL:		http://wiki.github.com/xsuchy/rpmconf
 # source is created by:
 # git clone https://github.com/xsuchy/rpmconf.git
 # cd rpmconf; tito build --tgz
 Source0:	https://github.com/xsuchy/rpmconf/archive/rpmconf-%{version}-1/rpmconf-rpmconf-%{version}-1.tar.gz
 Patch0:		fix-sphinx-build-binary-naming.patch
-Patch1:		fix-path-to-ls.patch
 BuildArch:	noarch
 BuildRequires:	docbook-utils
 BuildRequires:	docbook-dtd31-sgml
-BuildRequires:	python-sphinx
+BuildRequires:	python%{pyver}dist(sphinx)
 BuildRequires:	pkgconfig(python)
 Requires:	%{name}-base
-Requires:	python-rpm
-BuildRequires:	python-rpm
+Requires:	python%{pyver}dist(rpm)
+BuildRequires:	python%{pyver}dist(rpm)
 %if %{with tests}
-BuildRequires:	python-pylint
-BuildRequires:	python-six
+BuildRequires:	python%{pyver}dist(pylint)
+BuildRequires:	python%{pyver}dist(six)
 %endif
 # mergetools
 Suggests:	diffuse
 Suggests:	kdiff3
 Suggests:	meld
-Suggests:	vim-X11
-Suggests:	vim-enhanced
+Suggests:	(vim-X11 or neovim-qt)
+Suggests:	(vim-enhanced or neovim)
 # sdiff
 Suggests:	diffutils
 
