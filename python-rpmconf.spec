@@ -12,6 +12,7 @@ URL:		https://wiki.github.com/xsuchy/rpmconf
 Source0:	https://github.com/xsuchy/rpmconf/archive/rpmconf-%{version}-1/rpmconf-rpmconf-%{version}-1.tar.gz
 Patch0:		fix-sphinx-build-binary-naming.patch
 BuildArch:	noarch
+BuildRequires:  make
 BuildRequires:	docbook-utils
 BuildRequires:	docbook-dtd31-sgml
 BuildRequires:	python%{pyver}dist(sphinx)
