@@ -3,8 +3,8 @@
 Name:		python-rpmconf
 Summary:	Tool to handle rpmnew and rpmsave files
 License:	GPLv3
-Version:	1.1.10
-Release:	2
+Version:	1.1.12
+Release:	1
 URL:		https://wiki.github.com/xsuchy/rpmconf
 # source is created by:
 # git clone https://github.com/xsuchy/rpmconf.git
@@ -74,14 +74,13 @@ pylint-3.6 rpmconf bin/rpmconf || :
 %endif
 
 %files
-%license LICENSE
 %{_sbindir}/rpmconf
 %dir %{python3_sitelib}/rpmconf
 %{python_sitelib}/rpmconf/*
 %{python_sitelib}/rpmconf-*.egg-info
 
 %files doc
-%doc README.md LICENSE
+%doc README.md
 %doc docs/build/html/
 %doc %{_mandir}/man3/rpmconf.3*
 %doc %{_mandir}/man8/rpmconf.8*
