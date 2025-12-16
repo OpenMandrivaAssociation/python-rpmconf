@@ -74,14 +74,13 @@ pylint-3.6 rpmconf bin/rpmconf || :
 %endif
 
 %files
-%license LICENSE
 %{_sbindir}/rpmconf
 %dir %{python3_sitelib}/rpmconf
 %{python_sitelib}/rpmconf/*
 %{python_sitelib}/rpmconf-*.egg-info
 
 %files doc
-%doc README.md LICENSE
+%doc README.md
 %doc docs/build/html/
 %doc %{_mandir}/man3/rpmconf.3*
 %doc %{_mandir}/man8/rpmconf.8*
