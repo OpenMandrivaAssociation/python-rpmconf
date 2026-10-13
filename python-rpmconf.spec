@@ -23,6 +23,7 @@ Requires:	python%{pyver}dist(rpm)
 BuildRequires:	python%{pyver}dist(rpm)
 %if %{with tests}
 BuildRequires:	python%{pyver}dist(pylint)
+BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	python%{pyver}dist(six)
 %endif
 # mergetools
@@ -55,6 +56,8 @@ Directory hierarchy for installation scripts, which are handled by rpmconf.
 
 %prep
 %autosetup -p1 -n rpmconf-rpmconf-%{version}-1
+# Python 3.15 no longer ships distutils.
+sed -i 's/from distutils.core import setup/from setuptools import setup/' setup.py
 
 %build
 %py_build
