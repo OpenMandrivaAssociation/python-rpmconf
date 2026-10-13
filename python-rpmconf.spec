@@ -21,9 +21,9 @@ BuildRequires:	pkgconfig(python3)
 Requires:	%{name}-base
 Requires:	python%{pyver}dist(rpm)
 BuildRequires:	python%{pyver}dist(rpm)
+BuildRequires:	python%{pyver}dist(setuptools)
 %if %{with tests}
 BuildRequires:	python%{pyver}dist(pylint)
-BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	python%{pyver}dist(six)
 %endif
 # mergetools
